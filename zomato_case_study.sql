@@ -54,7 +54,7 @@ ON f.f_id = od.f_id
 WHERE user_id = (SELECT user_id FROM users WHERE name LIKE 'Ankit')
 AND (date > '2022-06-10' AND date < '2022-07-10');
 
-#Q6. Find restaurants with maximum number of repeated customers.
+# Q6. Find restaurants with maximum number of repeated customers.
 
 SELECT r.r_name, count(*) AS loyal_customers
 FROM (
@@ -78,7 +78,7 @@ WITH sales AS (
 SELECT month,revenue,LAG(revenue, 1) OVER (ORDER BY month_order) AS previous_month_revenue,((revenue - LAG(revenue, 1) OVER (ORDER BY month_order)) / LAG(revenue, 1) OVER (ORDER BY month_order)) * 100 AS percentage_change
 FROM sales;
 
-#Q8. Find favourite food of customer
+# Q8. Find favourite food of customer
 
 with temp AS (
 SELECT o.user_id, od.f_id, count(*) AS freq
